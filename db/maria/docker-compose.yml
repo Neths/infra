@@ -1,0 +1,9 @@
+db:
+  image: mariadb
+  container_name: mariadb
+  extends:
+    file: ../../pwd.yml
+    service: mariadb
+  volumes:
+    - /home/infra/db/mariadb/data:/var/lib/mysql
+  restart: always

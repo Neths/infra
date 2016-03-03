@@ -1,0 +1,17 @@
+seedbox:
+  extends:
+    file: ../pwd.yml
+    service: seedbox
+  image: dperson/transmission:latest
+  container_name: seedbox
+  volumes:
+   - /home/seedbox:/var/lib/transmission-daemon/downloads
+   - /home/infra/seedbox/torrents:/var/lib/transmission-daemon/info/torrents
+  ports:
+   - 51413:51413
+  environment:
+   VIRTUAL_HOST: 'transmission.neths.fr'
+   VIRTUAL_PORT: '9091'
+   LETSENCRYPT_HOST: 'transmission.neths.fr'
+   LETSENCRYPT_EMAIL: 'vacher.michel@gmail.com'
+  restart: always

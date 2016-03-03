@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  admin:
+    image: nginx
+    volumes:
+     - /home/infra/admin/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    environment:
+     - VIRTUAL_HOST=admin.neths.fr
+     - LETSENCRYPT_HOST=admin.neths.fr
+     - LETSENCRYPT_EMAIL=vacher.michel@gmail.com
+    links:
+     - pma
+
+  pma:
+    image: maxexcloo/phpmyadmin
+    external_links:
+     - mariadb:db
+  

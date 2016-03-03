@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  elasticsearch:
+    image: elasticsearch
+    volumes:
+     - /home/infra/elk/es_data:/usr/share/elasticsearch/data
+     - /home/infra/elk/es_config:/usr/share/elasticsearch/config
+
+  logstash:
+    image: logstash
+    volumes:
+     - /home/infra/elk/logstash_config:/config-dir
+    command: -f /config-dir/logstash.conf
+    depends_on:
+     - elasticsearch

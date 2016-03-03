@@ -1,0 +1,12 @@
+gitlab:
+  image: gitlab/gitlab-ce:8.4.5-ce.0
+  restart: always
+  hostname: gitlab.neths.fr
+  environment:
+    - VIRTUAL_HOST=gitlab.neths.fr
+    - LETSENCRYPT_HOST=gitlab.neths.fr
+    - LETSENCRYPT_MAIL=vacher.michel@gmail.com
+  volumes:
+   - /home/apps/prd/gitlab/data:/var/opt/gitlab
+   - /home/apps/prd/gitlab/logs:/var/log/gitlab
+   - /home/apps/prd/gitlab/config:/etc/gitlab
