@@ -1,9 +1,20 @@
-db:
-  image: mariadb
-  container_name: mariadb
-  extends:
-    file: ../../pwd.yml
-    service: mariadb
-  volumes:
-    - /home/infra/db/mariadb/data:/var/lib/mysql
-  restart: always
+version: '2'
+
+services:
+  db:
+    image: mariadb
+    container_name: mariadb
+    extends:
+      file: ../../pwd.yml
+      service: mariadb
+    volumes:
+      - /home/infra/db/maria/data:/var/lib/mysql
+    networks:
+      net_db_mysql:
+        aliases:
+          - maria
+    restart: always
+
+networks:
+  net_db_mysql:
+    external: true

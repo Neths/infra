@@ -8,12 +8,4 @@ services:
     environment:
      - VIRTUAL_HOST=admin.neths.fr
      - LETSENCRYPT_HOST=admin.neths.fr
-     - LETSENCRYPT_EMAIL=vacher.michel@gmail.com
-    links:
-     - pma
-
-  pma:
-    image: maxexcloo/phpmyadmin
-    external_links:
-     - mariadb:db
-  
+     - LETSENCRYPT_EMAIL=vacher.michel@gmail.com  
