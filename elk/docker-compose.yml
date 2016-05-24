@@ -1,13 +1,10 @@
-elasticsearch:
-  image: elasticsearch
-  volumes:
-   - /home/infra/elk/es_data:/usr/share/elasticsearch/data
-   - /home/infra/elk/es_config:/usr/share/elasticsearch/config
+version: '2'
 
-logstash:
-  image: logstash
-  volumes:
-   - /home/infra/elk/logstash_config:/config-dir
-  command: -f /config-dir/logstash.conf
-  depends_on:
-   - elasticsearch
+services:
+  elasticsearch:
+    image: elasticsearch:latest
+    container_name: es
+    command: elasticsearch -Des.network.host=0.0.0.0
+    volumes:
+     - /home/infra/elk/es_data:/usr/share/elasticsearch/data
+     - /home/infra/elk/es_config:/usr/share/elasticsearch/config
