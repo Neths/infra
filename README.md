@@ -6,6 +6,7 @@ docker network create my-network
 
 ##TODO
 ###DNS
+https://wiki.gandi.net/fr/hosting/using-linux/tutorials/ubuntu/bind
   https://gist.github.com/freshjones/b0713263033df8cc9f44
   
   
