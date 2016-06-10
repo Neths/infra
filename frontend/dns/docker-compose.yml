@@ -4,9 +4,7 @@ services:
   bind:
     image: dns
     ports:
-     - 5553:53/udp
-    dns:
-     - 127.0.0.1
+     - 53:53/udp
+     - 53:53
     volumes:
-     - /vagrant/named.conf:/etc/bind/named.conf
-     - /vagrant/db.neths.fr:/etc/bind/db.neths.fr
+     - /vagrant/bind_data:/etc/bind

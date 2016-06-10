@@ -1,0 +1,27 @@
+
+$TTL    10800
+@ IN SOA ns.neths.fr. neths.ns.neths.fr. (
+               20161006         ; Serial
+                  10800         ; Refresh
+                  86400         ; Retry
+                2419200         ; Expire
+                 604800 )       ; Negative Cache TTL
+
+@        IN      NS      ns.neths.fr.
+@        IN      A       91.121.75.31
+ns       IN      A       91.121.75.31
+loki     IN      A       91.121.75.31
+
+admin IN CNAME loki.neths.fr.
+dev.identity IN CNAME loki.neths.fr.
+gitlab IN CNAME loki.neths.fr.
+identity IN CNAME loki.neths.fr.
+mail IN CNAME loki.neths.fr.
+rec.gitlab IN CNAME loki.neths.fr.
+rec.identity IN CNAME loki.neths.fr.
+transmission IN CNAME loki.neths.fr.
+www IN CNAME loki.neths.fr.
+@ IN MX 50 fb.mail.gandi.net.
+@ IN MX 10 loki.neths.fr.
+@ IN MX 40 spool.mail.gandi.net.
+

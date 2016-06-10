@@ -1,0 +1,10 @@
+//
+// Do any local configuration here
+//
+
+zone "neths.fr" {
+	type master;
+	file "/etc/bind/db.neths.fr";
+	allow-transfer { 217.70.177.40; };
+};
+
