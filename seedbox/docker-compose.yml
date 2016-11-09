@@ -19,6 +19,7 @@ services:
      - VIRTUAL_NETWORK=net_web
      - VIRTUAL_HOST=transmission.neths.fr
      - VIRTUAL_PORT=9091
+     - HTTPS_METHOD=noredirect
      - LETSENCRYPT_HOST=transmission.neths.fr
      - LETSENCRYPT_EMAIL=vacher.michel@gmail.com
     restart: always
