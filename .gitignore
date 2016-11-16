@@ -1,6 +1,6 @@
 seedbox/torrents
 db/maria/data
-elk/es_data
+logging/es_data
 pwd.yml
 frontend/nginx_proxy/conf.d
 frontend/nginx_proxy/vhost.d
