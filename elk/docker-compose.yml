@@ -4,29 +4,33 @@ services:
   elasticsearch:
     image: elasticsearch:5.0
     container_name: elk_es
-    command: ["elasticsearch", "-E", "network.host=0.0.0.0"]
     environment:
      - ES_JAVA_OPTS:"-Des.path.conf=/etc/elasticsearch"
     volumes:
+     - /home/infra/elk/es_config:/usr/share/elasticsearch/config
      - /home/infra/elk/es_data:/usr/share/elasticsearch/data
+#    ports:
+#     - 9200:9200
     networks:
      - docker_elk
-  logstash:
-    image: logstash:5.0.0
-    container_name: elk_logstash
-    command: ["-f", "/etc/logstash/conf.d/"]
+  fluentd:
+    image: neths/docker-fluentd-es:1.0.0
+    container_name: elk_fluentd
     volumes:
-     - /home/infra/elk/logstash_config:/etc/logstash/conf.d
+     - /home/infra/elk/fluentd_config:/fluentd/etc
+    environment:
+     - FLUENTD_CONF=fluentd.conf
     networks:
      - docker_elk
   kibana:
     image: kibana:5.0.0
+    container_name: elk_kibana
     volumes:
      - /home/infra/elk/kibana_config/:/opt/kibana/config/
     networks:
      - docker_elk
     ports:
-     - 5601:5601     
+     - 5601:5601
 
 networks:
   docker_elk:
