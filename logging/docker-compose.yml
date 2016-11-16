@@ -7,31 +7,30 @@ services:
     environment:
      - ES_JAVA_OPTS:"-Des.path.conf=/etc/elasticsearch"
     volumes:
-     - /home/infra/elk/es_config:/usr/share/elasticsearch/config
-     - /home/infra/elk/es_data:/usr/share/elasticsearch/data
-#    ports:
-#     - 9200:9200
+     - ./es_config:/usr/share/elasticsearch/config
+     - ./es_data:/usr/share/elasticsearch/data
     networks:
-     - docker_elk
+     - logging
   fluentd:
     image: neths/docker-fluentd-es:1.0.0
     container_name: elk_fluentd
     volumes:
-     - /home/infra/elk/fluentd_config:/fluentd/etc
+     - ./fluentd_config:/fluentd/etc
     environment:
      - FLUENTD_CONF=fluentd.conf
     networks:
-     - docker_elk
+     - logging
   kibana:
     image: kibana:5.0.0
     container_name: elk_kibana
     volumes:
-     - /home/infra/elk/kibana_config/:/opt/kibana/config/
+     - ./kibana_config/:/opt/kibana/config/
     networks:
-     - docker_elk
+     - logging
     ports:
      - 5601:5601
 
 networks:
-  docker_elk:
-    driver: bridge
+  logging:
+    external:
+      name: net_logging
