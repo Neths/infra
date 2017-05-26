@@ -19,3 +19,4 @@ www             10800 IN CNAME loki.neths.fr.
 @ 10800 IN MX 50 fb.mail.gandi.net.
 @ 10800 IN MX 10 mail.neths.fr.
 @ 10800 IN MX 40 spool.mail.gandi.net.
+
