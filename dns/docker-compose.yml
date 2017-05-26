@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  dns:
+    container_name: 'dns'
+    image: ventz/bind
+    ports:
+     - 53:53/udp
+     - 53:53
+    dns:
+     - 8.8.8.8
+     - 8.8.4.4
+    volumes:
+     - ./bind_data/config:/etc/bind
+     - ./bind_data/cache:/var/cache/bind
+     - ./bind_data/logs:/var/log/named
+    restart: always

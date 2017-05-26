@@ -1,0 +1,9 @@
+@ IN SOA neths.fr. admin.neths.fr. (
+  2017052600
+  10800
+  3600
+  604800
+  38400
+  )
+                     IN    NS     ns.neths.fr.
+31                   IN    PTR    neths.fr.
