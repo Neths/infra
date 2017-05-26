@@ -1,0 +1,21 @@
+@  IN   SOA   ns.neths.fr. admin.neths.fr. (
+  2017052600
+  10800
+  3600
+  604800
+  38400
+  )
+
+@ IN NS ns.neths.fr.
+
+ns              10800 IN A 91.121.75.31
+loki            10800 IN A 91.121.75.31
+
+admin           10800 IN CNAME loki.neths.fr.
+transmission    10800 IN CNAME loki.neths.fr.
+www             10800 IN CNAME loki.neths.fr.
+
+
+@ 10800 IN MX 50 fb.mail.gandi.net.
+@ 10800 IN MX 10 mail.neths.fr.
+@ 10800 IN MX 40 spool.mail.gandi.net.
