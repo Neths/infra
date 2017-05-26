@@ -5,4 +5,6 @@ pwd.yml
 frontend/nginx_proxy/conf.d
 frontend/nginx_proxy/vhost.d
 logs
-
+subsonic/music
+subsonic/podcasts
+subsonic/subsonic

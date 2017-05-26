@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  subsonic:
+    container_name: subsonic
+    image: hurricane/subsonic
+    networks:
+      - traefik-net
+    ports:
+      - "4040:4040"
+    labels:
+      - "traefik.backend=subsonic"
+      - "traefik.port=4040"
+      - "traefik.frontend.rule=Host:subsonic.neths.fr"
+      - "traefik.docker.network=traefik-net"
+      - "traefik.enable=true"
+    volumes:
+      - ./subsonic:/subsonic
+      - ./music:/music
+      - ./podcasts:/podcasts
+    environment:
+      - TZ=Europe/Paris
+networks:
+  traefik-net:
+    external: true
